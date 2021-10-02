@@ -24,7 +24,8 @@ PROJECT_FOLDER
 │     └──[java]      
 │     └──[resources]
 │        │  application.properties #contains springboot cofigurations
-│        │  schema.sql  # Contains DB Script to create tables that executes during the App Startup          
+Startup          
+│        │  schema.sql  # Contains DB Script to create tables that executes during the App 
 │        │  data.sql    # Contains DB Script to Insert data that executes during the App Startup (after schema.sql)
 │        └──[public]    # keep all html,css etc, resources that needs to be exposed to user without security
 │
