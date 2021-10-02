@@ -48,3 +48,8 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# config vscode
+.vscode
+.vscode/*
+.vscode/sftp.json
