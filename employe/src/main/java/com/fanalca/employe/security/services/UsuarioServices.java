@@ -16,11 +16,11 @@ public class UsuarioServices {
     UsuarioRepository usuarioRepository;
 
     public Optional<Usuario> getByUserName(String nombreUsuario){
-        return usuarioRepository.findByUserName(nombreUsuario);
+        return usuarioRepository.findByUsername(nombreUsuario);
     }
 
     public boolean existsByUserName(String nombreUsuario){
-        return usuarioRepository.existsByUserName(nombreUsuario);
+        return usuarioRepository.existsByUsername(nombreUsuario);
     }
 
     public void save(Usuario usuario){

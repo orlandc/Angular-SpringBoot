@@ -4,22 +4,23 @@ import javax.persistence.*;
 
 import com.fanalca.employe.security.enums.RolNombre;
 
-import org.springframework.lang.NonNull;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
+@Table(name = "rol")
 public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NonNull
+    @NotNull
     @Enumerated(EnumType.STRING)
     private RolNombre rolNombre;
 
     public Rol() {
     }
 
-    public Rol(@NonNull RolNombre rolNombre) {
+    public Rol(@NotNull RolNombre rolNombre) {
         this.rolNombre = rolNombre;
     }
 

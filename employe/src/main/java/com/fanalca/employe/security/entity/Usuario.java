@@ -1,19 +1,20 @@
 package com.fanalca.employe.security.entity;
 
 import javax.persistence.*;
-import org.springframework.lang.NonNull;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "usuario")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NonNull
+    @NotNull
     @Column(unique = true)
     private String username;
-    @NonNull
+    @NotNull
     private String password;
     @ManyToMany
     @JoinTable(name="usuario_rol", joinColumns = @JoinColumn(
@@ -23,7 +24,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(@NonNull String username, @NonNull String password) {
+    public Usuario(@NotNull String username, @NotNull String password) {
         this.username = username;
         this.password = password;
     }
