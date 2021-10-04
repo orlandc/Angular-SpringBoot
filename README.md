@@ -11,30 +11,21 @@ REST Documentation| [Swagger UI](https://github.com/springfox/springfox)
 REST Spec         | [Open API Standard](https://www.openapis.org/) 
 Database          | Postgresql
 Persistence       | JPA (Using Spring Data)
-Server Build Tools| Maven(Java) or Gradle
+Server Build Tools| Maven(Java)
 
 ## Folder Structure
 ```bash
 PROJECT_FOLDER
 │  README.md
-│  pom.xml           
-│  build.gradle
+│  pom.xml
+└──[db_data]
+│     │  schema.sql  # Contains DB Script to create tables that executes during the App 
+│     │  data.sql    # Contains DB Script to Insert data that executes during the App 
 └──[src]      
 │  └──[main]      
 │     └──[java]      
 │     └──[resources]
 │        │  application.properties #contains springboot cofigurations
-Startup          
-│        │  schema.sql  # Contains DB Script to create tables that executes during the App 
-│        │  data.sql    # Contains DB Script to Insert data that executes during the App Startup (after schema.sql)
-│        └──[public]    # keep all html,css etc, resources that needs to be exposed to user without security
-│
-└──[target]              #Java build files, auto-created after running java build: mvn install
-│  └──[classes]
-│     └──[public]
-│     └──[webui]         #webui folder is created by (maven/gradle) which copies webui/dist folder 
-│                        #the application.properties file list webui as a resource folder that means files can be accesses http://localhost/<files_inside_webui> 
-│
 └──[webui]
    │  package.json     
    │  angular-cli.json   #ng build configurations)
