@@ -28,7 +28,7 @@ CREATE TABLE "public"."employees" (
 CREATE TABLE "public"."usuario" (
     "id"       int4        NOT NULL,
     "username" varchar(15) NOT NULL,
-    "password" varchar(15) NOT NULL,
+    "password" varchar(255) NOT NULL,
     UNIQUE ("username"),
     PRIMARY KEY ("id")
 );

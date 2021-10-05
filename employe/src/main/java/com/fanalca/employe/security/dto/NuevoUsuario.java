@@ -1,7 +1,7 @@
 package com.fanalca.employe.security.dto;
 
-
 import javax.validation.constraints.NotBlank;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,23 +10,24 @@ public class NuevoUsuario {
     private String userName;
 
     @NotBlank
-    private String password;
+    private String Password;
+
     private Set<String> roles = new HashSet<>();
 
     public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserName(String username) {
+        this.userName = username;
     }
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.Password = password;
     }
 
     public Set<String> getRoles() {
