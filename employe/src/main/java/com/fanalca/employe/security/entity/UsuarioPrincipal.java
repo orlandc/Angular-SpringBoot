@@ -16,6 +16,7 @@ public class UsuarioPrincipal implements UserDetails {
     public UsuarioPrincipal(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         this.username = username;
         this.password = password;
+        this.authorities = authorities;
     }
 
     public static UsuarioPrincipal build(Usuario usuario){

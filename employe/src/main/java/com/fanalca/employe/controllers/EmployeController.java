@@ -7,6 +7,7 @@ import com.fanalca.employe.models.EmployeModel;
 import com.fanalca.employe.services.EmployeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,7 @@ public class EmployeController {
         return employeService.getAllEmployes();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping()
     @ApiOperation("method POST request, by create employee")
     public EmployeModel createEmploye(@RequestBody EmployeModel employe) {
@@ -50,6 +52,7 @@ public class EmployeController {
         return this.employeService.getEmployeByName(nombres);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping(path = "/{id}")
     public String deleteEmploye(@PathVariable("id") Long id) {
         boolean deleted = this.employeService.deleteEmploye(id);

@@ -4,16 +4,16 @@ import javax.validation.constraints.NotBlank;
 
 public class LoginUsuario {
     @NotBlank
-    private String username;
+    private String userName;
     @NotBlank
     private String password;
 
     public String getUserName() {
-        return username;
+        return userName;
     }
 
     public void setUserName(String username) {
-        this.username = username;
+        this.userName = username;
     }
 
     public String getPassword() {
