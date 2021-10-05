@@ -25,8 +25,10 @@ CREATE TABLE "public"."employees" (
   CONSTRAINT fk_subarea FOREIGN KEY ("subarea") REFERENCES "public"."subarea" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
+CREATE SEQUENCE "user_id_seq";
+
 CREATE TABLE "public"."usuario" (
-    "id"       int4        NOT NULL,
+    "id"       int4        NOT NULL DEFAULT nextval('user_id_seq'),
     "username" varchar(15) NOT NULL,
     "password" varchar(255) NOT NULL,
     UNIQUE ("username"),
