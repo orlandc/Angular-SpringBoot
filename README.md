@@ -37,10 +37,12 @@ PROJECT_FOLDER
 ## Prerequisites
 Ensure you have this installed before proceeding further
 - Java 11
-- Maven 11.5
-- Node 16.10.0,  
+- Maven 3.8.2
+- Node 16.10.0
 - npm 7.24.0,   
 - Angular-cli 12.2.8
+- Docker 20.20.7
+- Docker Compose 1.21.2
 Note: this requeriments are implemented in docker files to deploy the application.
 
 ## About
