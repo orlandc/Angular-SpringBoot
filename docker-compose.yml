@@ -1,11 +1,24 @@
 version: '3.1'
 services:
-  #app:
-  #  image: app
-  #  ports:
-  #  - "8080:8080"
-  #  depends_on:
-  #  - mypostgres
+  backend:
+    restart: always
+    build: ./employe
+    container_name: backend
+    working_dir: /app
+    volumes:
+      - ./employe:/app
+      #- ~/.m2:/root/.m2
+    ports:
+      - "8080:8080"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    depends_on:
+      - db
+    links:
+      - 'db'
+    command: mvn clean spring-boot:run -Dspring-boot.run.profiles=docker
   db:
     image: postgres:11.2
     container_name: db
