@@ -21,14 +21,15 @@ PROJECT_FOLDER
 └──[db_data]
 │     │  schema.sql  # Contains DB Script to create tables that executes during the App 
 │     │  data.sql    # Contains DB Script to Insert data that executes during the App 
-└──[src]      
-│  └──[main]      
-│     └──[java]      
-│     └──[resources]
-│        │  application.properties #contains springboot cofigurations
+└──[emloyee]
+|  └──[src]    
+│     └──[main]      
+│        └──[java]      
+│        └──[resources]
+│           │  application.properties #contains springboot cofigurations
 └──[webui]
    │  package.json     
-   │  angular-cli.json   #ng build configurations)
+   │  angular-cli.json   #ng build configurations
    └──[node_modules]
    └──[src]              #frontend source files
    └──[dist]             #frontend build files, auto-created after running angular build: ng -build
@@ -69,3 +70,51 @@ The goal of the project is to
 * Build
   * How to build all in one app that includes (database, sample data, RESTfull API, Auto generated API Docs, frontend and security)
   * Deploy with dockers, and docker-compose.
+  
+```bash
+docker-compose up -d
+```
+## DB (postgresql)
+Creation of database schema and data are done using sql scripts that Springs runs automatically in the build project. To modify the database schema or the data you can modify schema.sql and data.sql which can be found at `/db_data`
+
+## Spring security
+The security is implemented using JWT tokens. The tokens are generated using Spring Security and JWT. The tokens are generated using the `/auth/login` endpoint. The tokens are used to authenticate the user and the user is then granted access to the protected resources.
+
+Additional is disabled Cors to allow cross-origin requests, it is necesary to allow the frontend to access the backend. if needed change WebSecurityConfig.java file to enable Cors.
+
+By default ports for backend an database are exposed on the host machine. If you are running with mayor security permissions you can change the ports to use the ports that are exposed in docker-compose.yml file.
+
+### Build Frontend (optional step)
+Code for frontend is buil in firts execute of docker container. However if you modified the frontend code and want your changes to get reflected then you must build the frontend 
+```bash
+# Navigate to PROJECT_FOLDER/docker-compose.yml
+docker-compose down && docker-compose up -d
+```
+### Accessing Application
+Cpmponent         | URL                                      | Credentials
+---               | ---                                      | ---
+Frontend          |  http://hostip:8080                      | `admin/admin`, `user/user`
+Swagger (API Ref) |  http://hostip:8080/swagger-ui.html      | 
+Swagger Spec      |  http://localhost:9119/api-docs          |
+
+### Screenshots
+#### Login
+![Dashboard](/images/login.png?raw=true)
+---
+#### Dashboard - Order Stats
+![Dashboard](/images/order_stats.png?raw=true)
+---
+#### Dashboard - Product Stats
+![Dashboard](/images/product_stats.png?raw=true)
+---
+#### Orders
+![Dashboard](/images/orders.png?raw=true)
+---
+#### Orders Details
+![Dashboard](/images/order_details.png?raw=true)
+---
+#### API Docs - Swagger
+![Dashboard](/images/backend.png?raw=true)
+---
+#### Database Schema
+![ER Diagram](/images/db_schema.png?raw=true)
