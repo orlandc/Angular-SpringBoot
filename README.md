@@ -101,17 +101,14 @@ Swagger Spec      |  http://localhost:9119/api-docs          |
 #### Login
 ![Dashboard](/images/login.png?raw=true)
 ---
-#### Dashboard - Order Stats
-![Dashboard](/images/order_stats.png?raw=true)
+#### Dashboard - firts page
+![Dashboard](/images/dashboard.png?raw=true)
 ---
-#### Dashboard - Product Stats
-![Dashboard](/images/product_stats.png?raw=true)
+#### employee list
+![Dashboard](/images/employee-list.png?raw=true)
 ---
-#### Orders
-![Dashboard](/images/orders.png?raw=true)
----
-#### Orders Details
-![Dashboard](/images/order_details.png?raw=true)
+#### employee Details
+![Dashboard](/images/employee-detail.png?raw=true)
 ---
 #### API Docs - Swagger
 ![Dashboard](/images/backend.png?raw=true)
