@@ -105,7 +105,7 @@ Swagger Spec      |  http://localhost:9119/api-docs          |
 ![Dashboard](/images/dashboard.png?raw=true)
 ---
 #### employee list
-![Dashboard](/images/employee-list.png?raw=true)
+![Dashboard](/images/employee_list.png?raw=true)
 ---
 #### employee Details
 ![Dashboard](/images/employee-detail.png?raw=true)
