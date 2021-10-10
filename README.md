@@ -107,10 +107,10 @@ Swagger Spec      |  http://hostip:8080//v2/api-docs         |
 #### Dashboard - firts page
 ![Dashboard](/images/dashboard.png?raw=true)
 ---
-#### employee list
+#### Employee list
 ![EmployeeList](/images/employee_list.png?raw=true)
 ---
-#### employee Details
+#### Employee Details
 ![EmployeeDetails](/images/employee-detail.png?raw=true)
 ---
 #### API Docs - Swagger
