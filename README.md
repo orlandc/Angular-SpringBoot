@@ -95,23 +95,26 @@ Cpmponent         | URL                                      | Credentials
 ---               | ---                                      | ---
 Frontend          |  http://hostip:8080                      | `admin/admin`, `user/user`
 Swagger (API Ref) |  http://hostip:8080/swagger-ui.html      | 
-Swagger Spec      |  http://localhost:9119/api-docs          |
+Swagger Spec      |  http://hostip:8080//v2/api-docs         |
 
 ### Screenshots
+#### Frontend
+![Frontend](/images/frontend.png?raw=true)
+---
 #### Login
-![Dashboard](/images/login.png?raw=true)
+![Login](/images/login.png?raw=true)
 ---
 #### Dashboard - firts page
 ![Dashboard](/images/dashboard.png?raw=true)
 ---
 #### employee list
-![Dashboard](/images/employee_list.png?raw=true)
+![EmployeeList](/images/employee_list.png?raw=true)
 ---
 #### employee Details
-![Dashboard](/images/employee-detail.png?raw=true)
+![EmployeeDetails](/images/employee-detail.png?raw=true)
 ---
 #### API Docs - Swagger
-![Dashboard](/images/backend.png?raw=true)
+![ApiDocs](/images/backend.png?raw=true)
 ---
 #### Database Schema
-![ER Diagram](/images/db_schema.png?raw=true)
+![ER-Diagram](/images/db_schema.png?raw=true)
