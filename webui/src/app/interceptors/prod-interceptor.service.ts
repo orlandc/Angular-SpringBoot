@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenService } from '../service/token.service';
 
@@ -14,7 +14,16 @@ export class ProdInterceptorService implements HttpInterceptor {
     let intReq = req;
     const token = this.tokenService.getToken();
     if (token != null) {
-      intReq = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + token)});
+      const headerss = new HttpHeaders({
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET',
+        'Access-Control-Allow-Origin': '*',
+        'Authorization': 'Bearer ' + token
+      });
+      
+      intReq = req.clone({ headers: headerss});
+
+      //intReq = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + token)});
     }
     return next.handle(intReq);
   }

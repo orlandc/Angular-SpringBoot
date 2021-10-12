@@ -36,18 +36,18 @@ export class RegistroComponent implements OnInit {
     this.authService.nuevo(this.nuevoUsuario).subscribe(
       data => {
         this.isLogged = true;
-        /*this.toastr.success('Cuenta Creada', 'OK', {
+        this.toastr.success('Cuenta Creada', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
-        });*/
+        });
 
         this.router.navigate(['/login']);
       },
       err => {
         this.isLogged = false;
         this.errMsj = err.error['mensaje'];
-        /*this.toastr.error(this.errMsj, 'Fail', {
+        this.toastr.error(this.errMsj, 'Error en Registro:', {
           timeOut: 3000,  positionClass: 'toast-top-center',
-        });*/
+        });
         //console.log(this.errMsj);
       }
     );

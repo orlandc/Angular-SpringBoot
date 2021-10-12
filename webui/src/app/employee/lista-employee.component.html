@@ -1,0 +1,70 @@
+<app-menu></app-menu>
+<div class="container">
+  <div class="row">
+    <div class="input-group mb-3">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">Filtro</button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Identificion</a></li>
+        <li><a class="dropdown-item" href="#">Nombre</a></li>
+      </ul>
+      <input type="text" class="form-control" aria-label="Ingrese una Busqueda">
+    </div>
+  </div>
+  <div class="row p-3">
+    <table class="table table-hover shadow">
+      <thead>
+        <tr>
+          <th class="text-center align-middle" scope="col">No. Identifición</th>
+          <th class="text-center align-middle" scope="col">Tipo</th>
+          <th class="text-center align-middle" scope="col">Nombres</th>
+          <th class="text-center align-middle" scope="col">Apellidos</th>
+          <th class="text-center align-middle" scope="col">Area</th>
+          <th class="text-center align-middle" scope="col">Dependencia</th>
+          <th class="text-center align-middle" scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr *ngFor="let employe of employees"> -->
+        <tr *ngFor="let employe of employees | paginate: { itemsPerPage: 10, currentPage: p }">
+          <td class="text-center align-middle">{{ employe.nui }}</td>
+          <td class="text-center align-middle">{{ employe.typenuiModel['nombres'] }}</td>
+          <td class="text-left   align-middle">{{ employe.nombre }}</td>
+          <td class="text-left   align-middle">{{ employe.apellido }}</td>
+          <td class="text-center align-middle">{{ employe.subareaModel['areaModel']['nombre'] }}</td>
+          <td class="text-center align-middle">{{ employe.subareaModel['nombre'] }}</td>
+          <td class="text-center align-middle">
+            <div class="row">
+              <div class="col">
+                <a href="#" routerLink="/detalle/{{employe.nui}}">
+                  <i class="far fa-eye"></i>
+                </a>
+              </div>
+              <div class="col">
+                <a href="#" *ngIf="isAdmin" routerLink="/editar/{{employe.nui}}">
+                  <i class="far fa-edit"></i>
+                </a>
+              </div>
+              <div class="col">
+                <a href="#" *ngIf="isAdmin" (click)="borrar(employe.nui)">
+                  <i class="far fa-trash-alt"></i>
+                </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row g-2">
+      <div class="col p-0">
+        <div *ngIf="isAdmin">
+          <button class="btn btn-outline-success" routerLink="/nuevo">
+            <i class="far fa-plus"></i> Nuevo Empleado
+          </button>
+        </div>
+      </div>
+      <div class="col p-0">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

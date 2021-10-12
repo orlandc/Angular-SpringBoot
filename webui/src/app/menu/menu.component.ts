@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { TokenService } from '../service/token.service';
 
-/* Import Icons */
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-menu',
@@ -15,7 +12,12 @@ export class MenuComponent implements OnInit {
 
   isLogged = false;
 
-  constructor(private tokenService: TokenService) { }
+  constructor(
+    private tokenService: TokenService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { }
+
 
   ngOnInit() {
     if (this.tokenService.getToken()) {
@@ -27,10 +29,9 @@ export class MenuComponent implements OnInit {
 
   onLogOut(): void {
     this.tokenService.logOut();
-    window.location.reload();
+    this.router.navigate(['/'])
+      .then(() => {
+        window.location.reload();
+      });
   }
-
-  faSignInAlt = faSignInAlt;
-  faHome = faHome;
-  faDoorOpen = faDoorOpen;
 }

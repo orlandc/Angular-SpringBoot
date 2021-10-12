@@ -6,24 +6,28 @@
         loading="lazy"
     />&nbsp;&nbsp;TeamConnect
   </a>
+      
   <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/lista">
+          <i class="fas fa-user"></i> Empleado</a>
+      </li>
+    </ul>
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
       <li class="nav-item">
         <a class="nav-link" routerLink="/">
-          <fa-icon [icon]="faHome"></fa-icon> Inicio
+          <i class="fas fa-home"></i> Inicio
         </a>
       </li>
-      <!-- <li class="nav-item" *ngIf="isLogged">
-        <a class="nav-link" routerLink="/lista"><i class="far fa-list-alt"></i> Lista</a>
-      </li> -->
       <li class="nav-item" *ngIf="!isLogged">
           <a class="nav-link"  routerLink="/login">
-            <fa-icon [icon]="faSignInAlt"></fa-icon> Iniciar Sesión
+            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
           </a>
         </li>
-        <li class="nav-item" *ngIf="isLogged" (click)="onLogOut()">
-          <a class="nav-link" style="cursor: pointer;">
-            <fa-icon [icon]="faDoorOpen"></fa-icon> Cerrar Sesión
+        <li class="nav-item" *ngIf="isLogged" (click)="onLogOut()" >
+          <a class="nav-link" style="cursor: pointer;" >
+            <i class="fas fa-door-open" ></i> Cerrar Sesión
           </a>
         </li>
     </ul>

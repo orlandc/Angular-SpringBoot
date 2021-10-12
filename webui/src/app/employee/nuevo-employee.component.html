@@ -1,0 +1,49 @@
+<app-menu></app-menu>
+<div class="containe">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form>
+                <div class="form-group">
+                    <label for="">No. Identificación</label>
+                    <input type="text" class="form-control" id="nui" name="nui"
+                    [(ngModel)]="nui" required>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="">Tipo de Documento</label>
+                    <select class="form-select" id="typenui" name="typenui" [(ngModel)]="typenui" required>
+                        <option *ngFor="let typenuiss of typenuiarr" [value]="typenuiss.id">
+                          {{ typenuiss.nombres }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="">Nombres</label>
+                    <input type="text" class="form-control" id="nombres" name="nombres"
+                    [(ngModel)]="nombres" required>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="">Apellidos</label>
+                    <input type="text" class="form-control" id="apellidos" name="apellidos"
+                    [(ngModel)]="apellidos" required>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="">Area</label>
+                    <select class="form-select" id="area" name="area" [(ngModel)]="area" (change)="changeArea($event)" required>
+                        <option *ngFor="let areas of areaarray" [value]="areas.id">
+                          {{ areas.nombre }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="">Dependencia</label>
+                    <select class="form-select" id="subarea" name="subarea" [(ngModel)]="subarea" required>
+                        <option *ngFor="let subareas of subareaarray" [value]="subareas.id">
+                          {{ subareas.nombre }}
+                        </option>
+                    </select>
+                </div>
+                <button class="btn btn-outline-success mt-3">Crear</button>
+            </form>
+        </div>
+    </div>
+</div>
