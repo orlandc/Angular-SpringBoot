@@ -2,6 +2,10 @@ package com.fanalca.employe.models;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import org.springframework.lang.NonNull;
+
 @Entity
 @Table(name = "employees")
 public class EmployeModel {
@@ -9,11 +13,21 @@ public class EmployeModel {
     @Column(unique = true, nullable = false)
     private Long nui;
     
-    private Integer typenui;
+    @NonNull
     private String  nombres;
+
+    @NonNull
     private String  apellidos;
-    private Integer area;
-    private Integer subarea;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "typenui")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private TypenuiModel typenuiModel;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "subarea")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private SubareaModel subareaModel;
 
     public void setNui(Long nui) {
         this.nui = nui;
@@ -21,30 +35,6 @@ public class EmployeModel {
 
     public Long getNui() {
         return nui;
-    }
-
-    public void setTypenui(Integer typenui) {
-        this.typenui = typenui;
-    }
-
-    public Integer getTypenui() {
-        return typenui;
-    }
-
-    public void setArea(Integer area) {
-        this.area = area;
-    }
-
-    public Integer getArea() {
-        return area;
-    }
-
-    public void setSubarea(Integer subarea) {
-        this.subarea = subarea;
-    }
-
-    public Integer getSubarea() {
-        return subarea;
     }
 
     public void setNombre(String nombres) {
@@ -61,5 +51,21 @@ public class EmployeModel {
 
     public String getApellido() {
         return apellidos;
+    }
+
+    public TypenuiModel getTypenuiModel(){
+        return typenuiModel;
+    }
+
+    public void setTypenuiModel(TypenuiModel typenuiModel) {
+        this.typenuiModel = typenuiModel;
+    }
+
+    public SubareaModel getSubareaModel(){
+        return subareaModel;
+    }
+
+    public void setSubareaModel(SubareaModel subareaModel) {
+        this.subareaModel = subareaModel;
     }
 }

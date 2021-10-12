@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@Api("This is The Hello Swagger API Documentation")
+@Api("This is The Employee Swagger API Documentation")
 @RequestMapping("/employe")
 public class EmployeController {
     @Autowired
