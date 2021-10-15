@@ -55,3 +55,10 @@ CREATE TABLE "public"."usuario_rol" (
     CONSTRAINT fk_usuario FOREIGN KEY("usuario_id") REFERENCES "public"."usuario" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION,
     CONSTRAINT fk_rol     FOREIGN KEY("rol_id")     REFERENCES "public"."rol" ("id")     ON DELETE NO ACTION ON UPDATE NO ACTION
 );
+
+CREATE OR REPLACE FUNCTION delfunc(id numeric) RETURNS void AS $$
+    BEGIN
+      DELETE FROM employees
+		  WHERE nui = id;
+    END;
+$$ LANGUAGE plpgsql
