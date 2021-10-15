@@ -14,7 +14,7 @@ export class SubareaService {
   constructor(private HttpClient: HttpClient) { }
 
   public lista(id: number): Observable<SubArea[]> {
-    console.log(id)
+    //console.log(id)
     return this.HttpClient.get<SubArea[]>(this.subAreaURL + `/area/${id}`);
   }
 
