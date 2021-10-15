@@ -5,8 +5,6 @@ services:
     restart: always
     container_name: frontend
     working_dir: /var/www/html
-    volumes:
-      - ./webui:/var/www/html
     ports:
       - "4200:4200"
     depends_on:

@@ -16,12 +16,6 @@ COPY . ${ROOT_WWW_PATH}
 
 RUN npm install
 
-RUN mkdir -p /tmp/node_modules
-
-RUN mv -f ./node_modules /tmp
-
-RUN ln -s /tmp/node_modules /var/www/html/node_modules
-
 EXPOSE 4200
 
-CMD [ "sh", "-c", "ng serve --host 0.0.0.0" ]
+CMD [ "sh", "-c", "ng serve --host 0.0.0.0 --disable-host-check" ]
