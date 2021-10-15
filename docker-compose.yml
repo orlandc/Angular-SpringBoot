@@ -1,18 +1,18 @@
 version: '3.1'
 services:
-  # frontend:
-  #   build: ./webui
-  #   restart: always
-  #   container_name: frontend
-  #   working_dir: /var/www/html
-  #   volumes:
-  #     - ./webui:/var/www/html
-  #   ports:
-  #     - "4200:4200"
-  #   depends_on:
-  #     - backend
-  #   links:
-  #     - 'backend'
+  frontend:
+    build: ./webui
+    restart: always
+    container_name: frontend
+    working_dir: /var/www/html
+    volumes:
+      - ./webui:/var/www/html
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    links:
+      - 'backend'
   backend:
     restart: always
     build: ./employe
