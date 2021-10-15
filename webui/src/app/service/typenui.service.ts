@@ -9,7 +9,7 @@ import { Typenui } from '../models/typenui';
 })
 export class TypenuiService {
 
-  typenuiURL = 'http://192.168.1.6:8080/typenui';
+  typenuiURL = 'http://backend:8080/typenui';
 
   constructor(private HttpClient: HttpClient) { }
 

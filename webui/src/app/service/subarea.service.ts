@@ -9,7 +9,7 @@ import { SubArea } from '../models/subarea';
 })
 export class SubareaService {
 
-  subAreaURL = 'http://192.168.1.6:8080/subarea';
+  subAreaURL = 'http://backend:8080/subarea';
 
   constructor(private HttpClient: HttpClient) { }
 

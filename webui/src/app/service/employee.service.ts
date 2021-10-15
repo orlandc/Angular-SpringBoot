@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class EmployeeService {
 
-  employeeURL = 'http://192.168.1.6:8080/employe';
+  employeeURL = 'http://backend:8080/employe';
 
   constructor(private HttpClient: HttpClient) { }
 

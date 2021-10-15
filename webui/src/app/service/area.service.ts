@@ -9,7 +9,7 @@ import { Area } from '../models/area';
 })
 export class AreaService {
 
-  areaURL = 'http://192.168.1.6:8080/area';
+  areaURL = 'http://backend:8080/area';
 
   constructor(private HttpClient: HttpClient) { }
 
