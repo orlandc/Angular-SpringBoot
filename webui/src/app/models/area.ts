@@ -4,6 +4,6 @@ export class Area {
 
     constructor(areaObject: any) {
         this.id = areaObject.id;
-        this.nombre = areaObject.address;
+        this.nombre = areaObject.nombre;
     }
 }

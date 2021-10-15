@@ -3,11 +3,11 @@ import { Area } from "./area";
 export class SubArea {
     id: number;
     nombre: string;
-    areaModel: Area[];
+    areaModel: Area;
 
     constructor(subareaObject: any) {
         this.id = subareaObject.id;
         this.nombre = subareaObject.nombre;
-        this.areaModel = subareaObject.area.map((area: any) => new Area(area)); 
+        this.areaModel = subareaObject.area;
     }
 }
