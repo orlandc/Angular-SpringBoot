@@ -2,47 +2,50 @@
 <div class="containe">
     <div class="row mt-5">
         <div class="col-md-4 mx-auto">
-            <form>
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="">No. Identificación</label>
+                    <label for="nui">No. Identificación</label>
                     <input type="text" class="form-control" id="nui" name="nui"
                     [(ngModel)]="nui" required>
                 </div>
                 <div class="form-group mt-2">
-                    <label for="">Tipo de Documento</label>
-                    <select class="form-select" id="typenui" name="typenui" [(ngModel)]="typenui" required>
+                    <label for="typenui">Tipo de Documento</label>
+                    <select class="form-select" id="idtypenui" name="idtypenui" [(ngModel)]="idtypenui" required>
+                        <option value="0" selected disabled class="text-hide">Selececcione un tipo de Identificación</option>
                         <option *ngFor="let typenuiss of typenuiarr" [value]="typenuiss.id">
                           {{ typenuiss.nombres }}
                         </option>
                     </select>
                 </div>
                 <div class="form-group mt-2">
-                    <label for="">Nombres</label>
-                    <input type="text" class="form-control" id="nombres" name="nombres"
-                    [(ngModel)]="nombres" required>
+                    <label for="nombres">Nombres</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre"
+                    [(ngModel)]="nombre" required>
                 </div>
                 <div class="form-group mt-2">
-                    <label for="">Apellidos</label>
-                    <input type="text" class="form-control" id="apellidos" name="apellidos"
-                    [(ngModel)]="apellidos" required>
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" class="form-control" id="apellido" name="apellido"
+                    [(ngModel)]="apellido" required>
                 </div>
                 <div class="form-group mt-2">
-                    <label for="">Area</label>
-                    <select class="form-select" id="area" name="area" [(ngModel)]="area" (change)="changeArea($event)" required>
+                    <label for="area">Area</label>
+                    <select class="form-select" id="idarea" name="idarea" [(ngModel)]="idarea" (change)="changeArea($event)" required>
+                        <option value="0" selected disabled class="text-hide">Selececcione un area</option>
                         <option *ngFor="let areas of areaarray" [value]="areas.id">
                           {{ areas.nombre }}
                         </option>
                     </select>
                 </div>
                 <div class="form-group mt-2">
-                    <label for="">Dependencia</label>
-                    <select class="form-select" id="subarea" name="subarea" [(ngModel)]="subarea" required>
+                    <label for="subarea">Dependencia</label>
+                    <select class="form-select" id="idsubarea" name="idsubarea" [(ngModel)]="idsubarea" required>
+                        <option value="0" selected disabled class="text-hide">Selececcione una dependencia</option>
                         <option *ngFor="let subareas of subareaarray" [value]="subareas.id">
                           {{ subareas.nombre }}
                         </option>
                     </select>
                 </div>
-                <button class="btn btn-outline-success mt-3">Crear</button>
+                <button class="btn btn-outline-success btn-block mt-3" [disabled]="!f.valid">Crear</button>
             </form>
         </div>
     </div>

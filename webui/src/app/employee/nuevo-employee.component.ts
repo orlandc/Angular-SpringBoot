@@ -25,20 +25,16 @@ export class NuevoEmployeeComponent implements OnInit {
   subareaarray:  SubArea[] = [];
 
   nui: number = null;
-  nombres: string;
-  apellidos: string;
+  nombre: string = '';
+  apellido: string = '';
 
   typenui: Typenui;
-  idtypenui: number;
-  nombrenui: string;
-  
   subarea: SubArea;
-  idsubarea: number;
-  nombresubarea: string;
-  
   area: Area;
-  idarea: number;
-  nombrearea: string;
+
+  idtypenui: number = null;
+  idarea: number = null;
+  idsubarea: number = null;
 
   errMsj: string;
   
@@ -52,12 +48,12 @@ export class NuevoEmployeeComponent implements OnInit {
   ) { 
     // async typenui
     of(this.getTypenui()).subscribe(typenuis => {
-      console.log(typenuis);
+      //console.log(typenuis);
     });
 
     // async areas
     of(this.getArea()).subscribe(areas => {
-      console.log(areas);
+      //console.log(areas);
     });
   }
 
@@ -65,10 +61,25 @@ export class NuevoEmployeeComponent implements OnInit {
   }
 
   onCreate(): void {
+    const typenuiObject = {
+      id: this.idtypenui,
+    }
+    this.typenui = new Typenui(typenuiObject);
+    const areaObject = {
+      id: this.idarea,
+    }
+    this.area    = new Area(areaObject);
+    const subareaObject = {
+      id:this.idsubarea, 
+      area:this.subarea
+    }
+    this.subarea = new SubArea(subareaObject);
+    this.subarea.areaModel = this.area;
+
     const employeeObject = {
       nui: this.nui,
-      nombres: this.nombres,
-      apellidos: this.apellidos,
+      nombre: this.nombre,
+      apellido: this.apellido,
       typenui: this.typenui,
       subarea: this.subarea,
       area: this.area
