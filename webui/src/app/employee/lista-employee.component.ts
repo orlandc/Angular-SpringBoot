@@ -54,7 +54,7 @@ export class ListaEmployeeComponent implements OnInit {
         this.cargarEmplooyees();
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Eeror de Ransaccion', {
+        this.toastr.error(err.error.mensaje, 'Error de Transaccion', {
           timeOut: 3000, positionClass: 'toast-top-center',
         });
       }
