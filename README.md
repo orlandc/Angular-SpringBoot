@@ -57,6 +57,7 @@ The goal of the project is to
   * Token Based Security (using Spring security)
   * API documentation and Live Try-out links with Swagger 
   * Posgresql database
+  * handling stored procedures in Posgresql
   * Using JPA template to talk to relational database
   * How to request and respond for paginated data 
 
@@ -66,6 +67,7 @@ The goal of the project is to
   * Techniques to load large data set in a data-table but still keeping DOM footprint less
   * Routing and guarding pages that needs authentication
   * Basic visulaization
+  * Nested Dropdowns
 
 * Build
   * How to build all in one app that includes (database, sample data, RESTfull API, Auto generated API Docs, frontend and security)
