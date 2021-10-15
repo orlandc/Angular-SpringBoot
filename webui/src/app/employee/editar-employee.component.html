@@ -1,1 +1,53 @@
-<p>editar-employee works!</p>
+<app-menu></app-menu>
+<div class="containe" *ngIf="employee">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="nui">No. Identificación</label>
+                    <input type="text" class="form-control" id="nui" name="nui"
+                    [(ngModel)]="employee.nui" readonly required>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="typenui">Tipo de Documento</label>
+                    <select class="form-select" id="idtypenui" name="idtypenui" [(ngModel)]="employee.typenuiModel.id" required>
+                        <option value="0" selected disabled class="text-hide">Selececcione un tipo de Identificación</option>
+                        <option *ngFor="let typenuiss of typenuiarr" [value]="typenuiss.id">
+                          {{ typenuiss.nombres }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="nombres">Nombres</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre"
+                    [(ngModel)]="employee.nombre" required>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" class="form-control" id="apellido" name="apellido"
+                    [(ngModel)]="employee.apellido" required>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="area">Area</label>
+                    <select class="form-select" id="idarea" name="idarea" [(ngModel)]="employee.subareaModel.areaModel.id" (change)="changeArea($event)" required>
+                        <option value="0" selected disabled class="text-hide">Selececcione un area</option>
+                        <option *ngFor="let areas of areaarray" [value]="areas.id">
+                          {{ areas.nombre }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="subarea">Dependencia</label>
+                    <select class="form-select" id="idsubarea" name="idsubarea" [(ngModel)]="employee.subareaModel.id" required>
+                        <option value="0" selected disabled class="text-hide">Selececcione una dependencia</option>
+                        <option *ngFor="let subareas of subareaarray" [value]="subareas.id">
+                          {{ subareas.nombre }}
+                        </option>
+                    </select>
+                </div>
+                <button class="btn btn-outline-success btn-block mt-3" [disabled]="!f.valid">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
