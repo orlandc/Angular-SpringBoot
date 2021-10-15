@@ -14,9 +14,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'lista', component: ListaEmployeeComponent },
-  { path: 'detalle:id', component: DetalleEmployeeComponent },
+  { path: 'detalle/:id', component: DetalleEmployeeComponent },
   { path: 'nuevo', component: NuevoEmployeeComponent },
-  { path: 'editar:id', component: EditarEmployeeComponent },
+  { path: 'editar/:id', component: EditarEmployeeComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
